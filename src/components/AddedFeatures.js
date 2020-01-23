@@ -7,10 +7,10 @@ import AddedFeature from './AddedFeature';
 
 const AddedFeatures = props => {
   const removeFeature = item => {
-    props.removeFeature();
+    props.removeFeature(item);
   };
 
-  console.log("features inside AddedFeatures: ", props.features);
+  // console.log("features inside AddedFeatures: ", props.features);
 
   return (
     <div className="content">

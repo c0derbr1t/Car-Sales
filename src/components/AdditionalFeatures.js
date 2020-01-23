@@ -9,6 +9,10 @@ const AdditionalFeatures = props => {
   const buyItem = item => {
     props.buyItem(item);
   };
+
+  console.log("featureS inside AdditionalFeatures: ", props.additionalFeatures);
+  console.log("state inside AdditionalFeatures: ", props.state);
+
   return (
     <div className="content">
       <h4>Additional Features</h4>
@@ -27,6 +31,7 @@ const AdditionalFeatures = props => {
 
 const mapStateToProps = state => {
   return {
+    state: state.featureReducer,
     additionalFeatures: state.featureReducer.additionalFeatures
   }
 }

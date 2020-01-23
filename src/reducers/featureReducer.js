@@ -18,9 +18,10 @@ const initialState = {
 export const featureReducer = (state= initialState, action) => {
     switch (action.type) {
         case "BUY_ITEM":
-            console.log("payload in BUY_ITEM: ", action.payload); 
+            // console.log("payload in BUY_ITEM: ", action.payload); 
             return {
                 ...state,
+                additionalPrice: state.additionalPrice + action.payload.price,
                 car: {
                     ...state.car,
                     features: [
@@ -37,7 +38,29 @@ export const featureReducer = (state= initialState, action) => {
                 })
             } 
         case "REMOVE_FEATURE":
-            //map over features array and filter out the corresponding object. Return the rest of them.
+            console.log("payload in REMOVE_FEATURE: ", action.payload);
+            // console.log("payload.price in REMOVE_FEATURE: ", action.payload.price);
+            // console.log("state.additionalPrice in REMOVE_FEATURE: ", state.additionalPrice);
+            console.log("state in REMOVE_FEATURE after item removed: ", state);
+            console.log("additonalFeatures in REMOVE_FEATURE: ", state.additionalFeatures);
+            return {
+                ...state,
+                additionalPrice: state.additionalPrice - action.payload.price,
+                car: {
+                    ...state.car,
+                    features: state.car.features.filter(feature => {
+                        if (action.payload !== feature) {
+                            return feature;
+                        } else {
+                            return null;
+                        }
+                    })
+                },
+                additionalFeatures: [
+                    ...state.additionalFeatures,
+                    action.payload
+                ]
+            }
         default:
             return state;
     }

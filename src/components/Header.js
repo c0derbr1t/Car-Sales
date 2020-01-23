@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+// import { updatePrice } from '../actions/updatePrice';
+
 const Header = props => {
   return (
     <>
