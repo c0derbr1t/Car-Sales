@@ -17,6 +17,27 @@ const initialState = {
 
 export const featureReducer = (state= initialState, action) => {
     switch (action.type) {
+        case "BUY_ITEM":
+            console.log("payload in BUY_ITEM: ", action.payload); 
+            return {
+                ...state,
+                car: {
+                    ...state.car,
+                    features: [
+                        ...state.car.features,
+                        action.payload
+                    ]
+                },
+                additionalFeatures: state.additionalFeatures.filter(feature => {
+                    if (action.payload !== feature) {
+                        return feature;
+                    } else {
+                        return null;
+                    }
+                })
+            } 
+        case "REMOVE_FEATURE":
+            //map over features array and filter out the corresponding object. Return the rest of them.
         default:
             return state;
     }

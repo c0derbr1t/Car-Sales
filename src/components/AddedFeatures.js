@@ -10,6 +10,8 @@ const AddedFeatures = props => {
     props.removeFeature();
   };
 
+  console.log("features inside AddedFeatures: ", props.features);
+
   return (
     <div className="content">
       <h6>Added features:</h6>

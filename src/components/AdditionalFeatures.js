@@ -7,7 +7,7 @@ import AdditionalFeature from './AdditionalFeature';
 
 const AdditionalFeatures = props => {
   const buyItem = item => {
-    props.buyItem();
+    props.buyItem(item);
   };
   return (
     <div className="content">
