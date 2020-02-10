@@ -1,4 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
+// import { updatePrice } from '../actions/updatePrice';
 
 const Header = props => {
   return (
@@ -12,4 +15,10 @@ const Header = props => {
   );
 };
 
-export default Header;
+const mapStateToProps = state => {
+  return {
+    car: state.featureReducer.car
+  }
+}
+
+export default connect(mapStateToProps, {})(Header);
